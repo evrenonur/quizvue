@@ -43,7 +43,11 @@ onMounted(async () => {
                         </div>
                     </template>
                     <template #loading> Yükleniyor...</template>
-                    <template #empty> Henüz kategori eklenmemiş.</template>
+                    <template #empty>
+                        <div class="flex justify-content-center">
+                            <span>Henüz kategori eklenmemiş.</span>
+                        </div>
+                    </template>
                     <Column header="Resim" sortable>
                         <template #body="slotProps">
                             <div class="flex align-items-center gap-2">

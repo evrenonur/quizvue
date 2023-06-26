@@ -9,9 +9,11 @@ const apiConstants = {
     GetCategoryById: 'categories/getCategoryById',
     UpdateCategory: 'categories/updateCategory',
     DeleteCategory: 'categories/deleteCategory',
+    GetTopicByCategoryId: 'categories/getTopicsByCategoryId',
 
-
+    CreateTopic: 'topics/createTopic',
+    DeleteTopic: 'topics/deleteTopic',
+    UpdateTopic: 'topics/updateTopic'
 };
-
 
 export default apiConstants;
