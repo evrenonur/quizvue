@@ -28,7 +28,7 @@ onMounted(async () => {
                     :value="categoriesStore.getCategories"
                     paginator
                     :rows="5"
-                    :rowsPerPageOptions="[5, 10, 20, 50]"
+                    :rowsPerPageOptions="[5, 10, 20, 50, 100]"
                     tableStyle="min-width: 50rem"
                     paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
                     currentPageReportTemplate="{first} to {last} of {totalRecords}"
