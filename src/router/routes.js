@@ -28,6 +28,11 @@ export const routes = [
                 component: () => import('@/views/pages/topics/topics.vue')
             },
             {
+                path: '/questions/:topicId',
+                name: 'questions',
+                component: () => import('@/views/pages/questions/questions.vue')
+            },
+            {
                 path: '/uikit/formlayout',
                 name: 'formlayout',
                 component: () => import('@/views/uikit/FormLayout.vue')
@@ -105,6 +110,7 @@ export const routes = [
                     }
                 ]
             },
+
             {
                 path: '/uikit/message',
                 name: 'message',
