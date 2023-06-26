@@ -57,7 +57,7 @@ onUnmounted(() => {
                                     <i class="pi pi-search" />
                                     <InputText placeholder="Ara" v-model="filters['global'].value" />
                                 </span>
-                                <Button type="button" icon="pi pi-plus" label="Ekle" severity="success" @click="topicStore.createTopicDialog = true" class="mr-auto" v-if="topicStore.categoryId" />
+                                <Button type="button" icon="pi pi-plus" label="Konu Ekle" severity="success" @click="topicStore.createTopicDialog = true" class="mr-auto" v-if="topicStore.categoryId" v-tooltip.top="'Konu Ekle'" />
                             </div>
                         </div>
                     </template>
@@ -69,15 +69,24 @@ onUnmounted(() => {
                         </div>
                     </template>
                     <Column field="title" header="Başlık" sortable></Column>
-                    <Column field="duration" header="Süre" sortable></Column>
-                    <Column field="question_count" header="Gösterilecek Soru Sayısı" sortable></Column>
+                    <Column field="duration" header="Süre" sortable>
+                        <template #body="slotProps">
+                            <span class="p-badge p-badge-success">{{ slotProps.data.duration }}</span>
+                        </template>
+                    </Column>
+                    <Column header="Gösterilecek Soru Sayısı" sortable>
+                        <template #body="slotProps">
+                            <span class="p-badge p-badge-info">{{ slotProps.data.question_count }}</span>
+                        </template>
+                    </Column>
                     <Column field="created_at" header="Eklenme Tarihi" sortable></Column>
                     <Column field="updated_at" header="Güncellenme Tarihi" sortable></Column>
                     <Column header="İşlemler">
                         <template #body="slotProps">
                             <span class="p-buttonset">
-                                <Button icon="pi pi-pencil" aria-label="Filter" severity="info" @click="topicStore.editTopic(slotProps.data.id)" type="button" />
-                                <Button icon="pi pi-trash" aria-label="Filter" severity="danger" @click="topicStore.deleteTopic(slotProps.data.id)" type="button" />
+                                <Button icon="pi pi-pencil" aria-label="Filter" severity="info" @click="topicStore.editTopic(slotProps.data.id)" type="button" v-tooltip.top="'Konuyu Düzenle'" />
+                                <Button icon="pi pi-trash" aria-label="Filter" severity="danger" @click="topicStore.deleteTopic(slotProps.data.id)" type="button" v-tooltip.top="'Konuyu Sil'" />
+                                <Button icon="pi pi-folder-open" aria-label="Filter" severity="warning" type="button" v-tooltip.top="'Soruları Görüntüle'" />
                             </span>
                         </template>
                     </Column>
