@@ -86,7 +86,6 @@ onUnmounted(() => {
                             <span class="p-buttonset">
                                 <Button icon="pi pi-pencil" aria-label="Filter" severity="info" @click="topicStore.editTopic(slotProps.data.id)" type="button" v-tooltip.top="'Konuyu Düzenle'" />
                                 <Button icon="pi pi-trash" aria-label="Filter" severity="danger" @click="topicStore.deleteTopic(slotProps.data.id)" type="button" v-tooltip.top="'Konuyu Sil'" />
-                                <Button icon="pi pi-folder-open" aria-label="Filter" severity="warning" type="button" v-tooltip.top="'Soruları Görüntüle'" @click="topicStore.getQuestionsByTopicId(slotProps.data.id)" />
                             </span>
                         </template>
                     </Column>

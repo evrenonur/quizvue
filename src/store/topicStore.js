@@ -2,7 +2,6 @@ import { defineStore } from 'pinia';
 import NetworkManager from '@/core/NetworkManager';
 import ApiConstants from '@/core/ApiConstants';
 import { toast } from 'vue3-toastify';
-import router from '@/router';
 
 const useTopicStore = defineStore('topic', {
     state: () => ({
@@ -84,9 +83,6 @@ const useTopicStore = defineStore('topic', {
                 this.getTopicsByCategoryId();
                 toast.success('Konu başarıyla güncellendi.');
             }
-        },
-        getQuestionsByTopicId(topicId) {
-            router.push({ name: 'questions', params: { topicId: topicId } });
         }
     }
 });

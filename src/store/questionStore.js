@@ -6,16 +6,26 @@ import { toast } from 'vue3-toastify';
 const useQuestionStore = defineStore('question', {
     state: () => ({
         topicId: null,
-        questions: []
+        categoryId: null,
+        questions: [],
+        topicList: [],
+        createDialog: false
     }),
 
     actions: {
         async getQuestionByTopic() {
-            console.log('getQuestionByTopic')
-            const response = await NetworkManager.get(ApiConstants.GetQuestionByTopic + '?id=' + this.topicId);
+            if (this.topicId !== null) {
+                const response = await NetworkManager.get(ApiConstants.GetQuestionByTopic + '?id=' + this.topicId);
+                if (response.status === 200) {
+                    this.questions = response.data.data;
+                    toast.success('Sorular başarıyla getirildi.');
+                }
+            }
+        },
+        async getTopicList() {
+            const response = await NetworkManager.get(ApiConstants.GetTopicByCategoryId + '?id=' + this.categoryId);
             if (response.status === 200) {
-                this.questions = response.data;
-                toast.success('Sorular başarıyla getirildi.');
+                this.topicList = response.data.data;
             }
         }
     }

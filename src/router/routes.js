@@ -28,7 +28,7 @@ export const routes = [
                 component: () => import('@/views/pages/topics/topics.vue')
             },
             {
-                path: '/questions/:topicId',
+                path: '/questions',
                 name: 'questions',
                 component: () => import('@/views/pages/questions/questions.vue')
             },
