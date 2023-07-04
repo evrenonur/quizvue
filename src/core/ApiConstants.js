@@ -14,7 +14,13 @@ const apiConstants = {
     CreateTopic: 'topics/createTopic',
     DeleteTopic: 'topics/deleteTopic',
     UpdateTopic: 'topics/updateTopic',
-    GetQuestionByTopic: 'topics/getQuestionsByTopic'
+    GetQuestionByTopic: 'topics/getQuestionsByTopic',
+
+    CreateQuestion: 'questions/createQuestion',
+    DeleteQuestion: 'questions/deleteQuestion',
+    GetQuestionById: 'questions/getQuestionById',
+    UpdateQuestion: 'questions/updateQuestion',
+    RemoveImage: 'questions/removeImage'
 };
 
 export default apiConstants;

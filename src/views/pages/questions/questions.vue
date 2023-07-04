@@ -4,6 +4,7 @@ import { onMounted, ref, watch } from 'vue';
 import { FilterMatchMode } from 'primevue/api';
 import useCategoriesStore from '@/store/categoriesStore';
 import CreateDialog from '@/views/pages/questions/createDialog.vue';
+import EditDialog from '@/views/pages/questions/editDialog.vue';
 
 const questionStore = useQuestionStore();
 const categoriesStore = useCategoriesStore();
@@ -101,8 +102,8 @@ watch(selectedTopic, async (newValue) => {
                 <Column header="İşlemler">
                     <template #body="slotProps">
                         <span class="p-buttonset">
-                            <Button icon="pi pi-pencil" aria-label="Filter" severity="info" @click="questionStore.createDialog = true" type="button" v-tooltip.top="'Kategori Düzenle'" />
-                            <Button icon="pi pi-trash" aria-label="Filter" severity="danger" @click="" type="button" v-tooltip.top="'Kategori Sil'" />
+                            <Button icon="pi pi-pencil" aria-label="Filter" severity="info" @click="questionStore.editQuestion(slotProps.data.id)" type="button" v-tooltip.top="'Soru Düzenle'" />
+                            <Button icon="pi pi-trash" aria-label="Filter" severity="danger" @click="questionStore.deleteQuestion(slotProps.data.id)" type="button" v-tooltip.top="'Soru Sil'" />
                         </span>
                     </template>
                 </Column>
@@ -110,6 +111,7 @@ watch(selectedTopic, async (newValue) => {
         </div>
     </div>
     <CreateDialog />
+    <EditDialog />
 </template>
 
 <style scoped lang="scss"></style>

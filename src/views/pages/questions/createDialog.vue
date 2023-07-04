@@ -3,17 +3,13 @@ import useQuestionStore from '@/store/questionStore';
 import { ref } from 'vue';
 
 const questionStore = useQuestionStore();
-const answers = ref([{ text: '', correct: ref(false) }]);
+const answers = ref([{ text: '', correct: ref(true) }]);
 
 function handleFileUpload(event) {
-    // const file = event.files[0];
-    // categoriesStore.formData.icon = file;
+    questionStore.image = event.files[0];
 }
 
 function handleCorrectAnswerChange(index) {
-    const selectedAnswer = answers.value[index];
-
-    // Diğer cevapları false olarak ayarla
     answers.value.forEach((answer, i) => {
         if (i !== index) {
             answer.correct = false;
@@ -24,7 +20,6 @@ function handleCorrectAnswerChange(index) {
 }
 
 function addAnswer() {
-    // Yeni bir cevap nesnesi ekle
     answers.value.push({
         text: '',
         correct: ref(false)
@@ -32,28 +27,27 @@ function addAnswer() {
 }
 
 function removeAnswer(index) {
-    // Belirtilen indeksteki cevabı answers dizisinden kaldır
     answers.value.splice(index, 1);
 }
 
 function handleSubmit() {
     const formData = {
         title: document.getElementById('title').value,
-        point: document.getElementById('point').value,
+        point: document.getElementById('point').value > 0 ? document.getElementById('point').value : 1,
+        topicId: questionStore.topicId,
+        image: questionStore.image,
         answers: answers.value.map((answer) => ({
             title: answer.text,
             isCorrect: answer.correct ? 1 : 0
         }))
     };
 
-    console.log(formData);
+    questionStore.createQuestion(formData);
 }
-
-// Store yerine burada kullanmak istediğin fonksiyonları tanımla
 </script>
 
 <template>
-    <Dialog v-model:visible="questionStore.createDialog" modal header="Konu Ekle" :style="{ width: '50vw' }">
+    <Dialog v-model:visible="questionStore.createDialog" modal header="Soru Ekle" :style="{ width: '50vw' }">
         <form @submit.prevent="handleSubmit">
             <div class="col-12 md:col-12">
                 <div class="p-fluid">
@@ -80,7 +74,7 @@ function handleSubmit() {
                             <span class="p-inputgroup-addon p-inputgroup-addon-checkbox">
                                 <InputSwitch v-model="answers[index].correct" @change="handleCorrectAnswerChange(index)" />
                             </span>
-                            <InputText v-model="answer.text" placeholder="Cevap" />
+                            <InputText v-model="answer.text" placeholder="Cevap" required />
                             <Button icon="pi pi-trash" class="p-button-danger" @click="removeAnswer(index)" />
                         </div>
                     </div>
