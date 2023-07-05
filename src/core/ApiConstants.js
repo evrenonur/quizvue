@@ -29,7 +29,11 @@ const apiConstants = {
     CreateUser: 'users/createUser',
     DeleteUser: 'users/deleteUser',
     GetUserById: 'users/getUserById',
-    UpdateUser: 'users/updateUser'
+    UpdateUser: 'users/updateUser',
+
+    // Analytics
+    GetTopicScore: 'analytics/getTopicScore',
+    GetTopicAnswersByUserAndTopic: 'analytics/getTopicAnswersByUserAndTopic'
 };
 
 export default apiConstants;

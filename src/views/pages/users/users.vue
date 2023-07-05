@@ -31,8 +31,8 @@ onMounted(async () => {
                                 <i class="pi pi-search" />
                                 <InputText placeholder="Ara" v-model="filters['global'].value" />
                             </span>
-                            <Button type="button" icon="pi pi-plus" label="Kullanıcı Ekle" severity="success" v-tooltip.top="'Kullanıcı Ekle'" @click="usersStore.createDialog = true" />
                         </div>
+                        <Button type="button" icon="pi pi-plus" label="Kullanıcı Ekle" severity="success" v-tooltip.top="'Kullanıcı Ekle'" @click="usersStore.createDialog = true" />
                     </div>
                 </template>
                 <template #loading> Yükleniyor...</template>
