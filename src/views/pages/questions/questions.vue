@@ -92,9 +92,14 @@ watch(selectedTopic, async (newValue) => {
                         </div>
                     </template>
                 </Column>
-                <Column header="Cevap Sayısı">
+                <Column header="Cevap Sayısı" searchable>
                     <template #body="slotProps">
                         <span class="p-badge p-badge-info p-mr-2">{{ slotProps.data.answers.length }}</span>
+                    </template>
+                </Column>
+                <Column header="Soru Puanı" searchable>
+                    <template #body="slotProps">
+                        <span class="p-badge p-badge-success p-mr-2">{{ slotProps.data.point }}</span>
                     </template>
                 </Column>
                 <Column field="created_at" header="Eklenme Tarihi" sortable searchable></Column>

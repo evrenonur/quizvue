@@ -11,16 +11,25 @@ const apiConstants = {
     DeleteCategory: 'categories/deleteCategory',
     GetTopicByCategoryId: 'categories/getTopicsByCategoryId',
 
+    // Topics
     CreateTopic: 'topics/createTopic',
     DeleteTopic: 'topics/deleteTopic',
     UpdateTopic: 'topics/updateTopic',
     GetQuestionByTopic: 'topics/getQuestionsByTopic',
 
+    // Questions
     CreateQuestion: 'questions/createQuestion',
     DeleteQuestion: 'questions/deleteQuestion',
     GetQuestionById: 'questions/getQuestionById',
     UpdateQuestion: 'questions/updateQuestion',
-    RemoveImage: 'questions/removeImage'
+    RemoveImage: 'questions/removeImage',
+
+    // Users
+    GetAllUsers: 'users/getAllUsers',
+    CreateUser: 'users/createUser',
+    DeleteUser: 'users/deleteUser',
+    GetUserById: 'users/getUserById',
+    UpdateUser: 'users/updateUser'
 };
 
 export default apiConstants;

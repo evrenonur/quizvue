@@ -18,6 +18,9 @@ const model = ref([
         items: [{ label: 'Sorular', icon: 'pi pi-fw pi-question', to: '/questions' }]
     },
     {
+        items: [{ label: 'Kullanıcılar', icon: 'pi pi-fw pi-users', to: '/users' }]
+    },
+    {
         label: 'UI Components',
         items: [
             { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },

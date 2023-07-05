@@ -33,6 +33,11 @@ export const routes = [
                 component: () => import('@/views/pages/questions/questions.vue')
             },
             {
+                path: '/users',
+                name: 'users',
+                component: () => import('@/views/pages/users/users.vue')
+            },
+            {
                 path: '/uikit/formlayout',
                 name: 'formlayout',
                 component: () => import('@/views/uikit/FormLayout.vue')

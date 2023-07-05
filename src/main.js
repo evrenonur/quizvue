@@ -2,7 +2,6 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 
-
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
@@ -106,7 +105,7 @@ import BlockViewer from '@/components/BlockViewer.vue';
 
 import '@/assets/styles.scss';
 import 'vue3-toastify/dist/index.css';
-import { createPinia } from "pinia";
+import { createPinia } from 'pinia';
 const app = createApp(App);
 
 app.use(createPinia());
@@ -116,8 +115,8 @@ app.use(ToastService);
 app.use(DialogService);
 app.use(ConfirmationService);
 app.use(Vue3Toastify, {
-  position: 'top-right',
-  autoClose: 2000,
+    position: 'top-right',
+    autoClose: 2000
 });
 
 app.directive('tooltip', Tooltip);

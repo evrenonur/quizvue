@@ -74,7 +74,7 @@ onUnmounted(() => {
                             <span class="p-badge p-badge-success">{{ slotProps.data.duration }}</span>
                         </template>
                     </Column>
-                    <Column header="Gösterilecek Soru Sayısı" sortable>
+                    <Column field="question_count" header="Gösterilecek Soru Sayısı" sortable>
                         <template #body="slotProps">
                             <span class="p-badge p-badge-info">{{ slotProps.data.question_count }}</span>
                         </template>

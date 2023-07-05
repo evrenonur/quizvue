@@ -1,5 +1,6 @@
 <script setup>
 import useQuestionStore from '@/store/questionStore';
+import { toast } from 'vue3-toastify';
 
 const questionStore = useQuestionStore();
 
@@ -26,6 +27,10 @@ function addAnswer() {
 }
 
 function removeAnswer(ansewerId) {
+    if (questionStore.editQuestionData.answers.length === 2) {
+        toast.error('En az bir cevap olmalıdır.');
+        return;
+    }
     questionStore.editQuestionData.answers = questionStore.editQuestionData.answers.filter((answer) => answer.id !== ansewerId);
 }
 

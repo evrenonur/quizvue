@@ -1,6 +1,7 @@
 <script setup>
 import useQuestionStore from '@/store/questionStore';
 import { ref } from 'vue';
+import { toast } from 'vue3-toastify';
 
 const questionStore = useQuestionStore();
 const answers = ref([{ text: '', correct: ref(true) }]);
@@ -27,6 +28,10 @@ function addAnswer() {
 }
 
 function removeAnswer(index) {
+    if (answers.value.length <= 2) {
+        toast.error('En az iki cevap olmalıdır.');
+        return;
+    }
     answers.value.splice(index, 1);
 }
 
