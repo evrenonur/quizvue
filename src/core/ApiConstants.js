@@ -1,5 +1,5 @@
 const apiConstants = {
-    BASE_URL: 'https://quizapp.ayssoft.com/api/v1/',
+    BASE_URL: 'https://localhost:8000/api/v1/',
     LOGIN: 'auth/login',
     LOGOUT: 'auth/logout',
 
